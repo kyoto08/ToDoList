@@ -4,9 +4,9 @@ import Modal from "./Modal";
 import Backdrop from "./Backdrop";
 
 function Todo(props) {
-    const [ModalIsOpen, setModalIsOpen] = useState(false);
+    const [ModalIsOpen, setModalIsOpen] = useState();
 
-    function handlerDelete() {
+    function showModalHandler() {
         setModalIsOpen(true);
     }
 
@@ -18,12 +18,12 @@ function Todo(props) {
         <div className="toDoCard">
             <h2>{props.text}</h2>
             <div className="options">
-                <button className="btn" onClick={handlerDelete}>
+                <button className="btn" onClick={showModalHandler}>
                     Delete
                 </button>
             </div>
-            {ModalIsOpen && < Modal />}
-            {ModalIsOpen && < Backdrop clickedNo = {closeModalHandler}/>}
+            {ModalIsOpen && < Backdrop onClick={closeModalHandler}/>}
+            {ModalIsOpen && < Modal text="Are you sure about that?" clickedNo = {closeModalHandler}/>}
       </div>
     );
 }
