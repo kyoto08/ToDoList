@@ -23,7 +23,7 @@ function Todo(props) {
                 </button>
             </div>
             {ModalIsOpen && < Backdrop onClick={closeModalHandler}/>}
-            {ModalIsOpen && < Modal text="Are you sure about that?" clickedNo = {closeModalHandler}/>}
+            {ModalIsOpen && < Modal text="Are you sure about that?" onClose = {closeModalHandler}/>}
       </div>
     );
 }
