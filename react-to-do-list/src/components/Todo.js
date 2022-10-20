@@ -1,31 +1,31 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Modal from "./Modal";
-import Backdrop from "./Backdrop";
+import Backdrop from './Backdrop';
+import Modal from './Modal';
 
 function Todo(props) {
-    const [ModalIsOpen, setModalIsOpen] = useState();
+  const [showModal, setShowModal] = useState();
 
-    function showModalHandler() {
-        setModalIsOpen(true);
-    }
+  function showModalHandler() {
+    setShowModal(true);
+  }
 
-    function closeModalHandler() {
-        setModalIsOpen(false);
-    }
+  function closeModalHandler() {
+    setShowModal(false);
+  }
 
-    return (
-        <div className="toDoCard">
-            <h2>{props.text}</h2>
-            <div className="options">
-                <button className="btn" onClick={showModalHandler}>
-                    Delete
-                </button>
-            </div>
-            {ModalIsOpen && < Backdrop onClick={closeModalHandler}/>}
-            {ModalIsOpen && < Modal text="Are you sure about that?" onClose = {closeModalHandler}/>}
+  return (
+    <div className='card'>
+      <h2>{props.text}</h2>
+      <div className='actions'>
+        <button className='btn' onClick={showModalHandler}>
+          Delete
+        </button>
       </div>
-    );
+      {showModal && <Backdrop onClick={closeModalHandler} />}
+      {showModal && <Modal text='Are you sure?' onClose={closeModalHandler} />}
+    </div>
+  );
 }
 
 export default Todo;
